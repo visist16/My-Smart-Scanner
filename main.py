@@ -23,3 +23,5 @@ while True:
             if cv2.waitKey(1) == ord('s'):
                 img_pil = Image.fromarray(object_only)
                 time_str = time.strftime('%Y-%m-%d-%H-%M-%S')
+                img_pil.save(f'{time_str}.pdf')
+                print(time_str)

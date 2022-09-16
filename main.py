@@ -9,3 +9,7 @@ while True:
     img_bytes = bytearray(img.read())
     img_np = np.array(img_bytes, dtype=np.uint8)
     frame = cv2.imdecode(img_np, -1)
+    frame_cvt = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+    frame_blur = cv2.GaussianBlur(frame_cvt, (5, 5), 0)
+    frame_edge = cv2.Canny(frame_blur, 30, 50)
+    contours, h = cv2.findContours(frame_edge, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)    

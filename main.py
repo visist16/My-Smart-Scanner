@@ -20,3 +20,6 @@ while True:
             # cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 255), 2)
             object_only = frame[y:y+h, x:x+w]
             cv2.imshow('My Smart Scanner', object_only)
+            if cv2.waitKey(1) == ord('s'):
+                img_pil = Image.fromarray(object_only)
+                time_str = time.strftime('%Y-%m-%d-%H-%M-%S')

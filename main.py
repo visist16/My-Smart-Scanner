@@ -13,3 +13,6 @@ while True:
     frame_blur = cv2.GaussianBlur(frame_cvt, (5, 5), 0)
     frame_edge = cv2.Canny(frame_blur, 30, 50)
     contours, h = cv2.findContours(frame_edge, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)    
+    if contours:
+        max_contour = max(contours, key=cv2.contourArea)
+        x, y, w, h = cv2.boundingRect(max_contour)
